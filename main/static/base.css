@@ -1,0 +1,218 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #000000;
+    color: white;
+    height: 100%vh;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: antiquewhite;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Set a maximum width for the carousel */
+    margin: 2rem auto; /* Center the carousel horizontally and add vertical spacing */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.carousel-item {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-item img {
+    max-width: 700px;
+    height: auto;
+    object-fit: cover; /* Ensure images cover the container */
+    border-radius: 10px; /* Optional: Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better appearance */
+}
+
+.carousel-control-prev, .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(44, 206, 112, 0.5);
+    color: rgb(206, 98, 98);
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%; /* Optional: Make the buttons round */
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-control-prev {
+    left: 90px;
+}
+
+.carousel-control-next {
+    right: 10px;
+}
+
+
+.hero {
+    background: url('church1.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 5rem 1rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.5rem;
+}
+
+.about-us {
+    padding: 2rem 1rem;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.about-us .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-us h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about-us p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.services {
+    padding: 2rem 1rem;
+    background-color: #e9ecef;
+    text-align: center;
+}
+
+.services .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.services h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.services .service-item {
+    margin-bottom: 1.5rem;
+}
+
+.services .service-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.services .service-item p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.contact-us {
+    padding: 2rem 1rem;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.contact-us .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-us h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact-us p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.contact-us form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-us form input,
+.contact-us form textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-us form button {
+    padding: 0.5rem 1rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-us form button:hover {
+    background-color: #218838;
+}
+
+footer {
+    background-color: #333;
+    margin: 10px;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    position: absolute;
+    width: 100%;
+}
