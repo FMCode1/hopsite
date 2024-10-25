@@ -1,0 +1,165 @@
+/* navbar */
+.et-hero-tabs-container {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  z-index: 10;
+  &--top {
+      position: fixed;
+      top: 0;
+  }
+}
+
+.et-hero-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  color: #000;
+  letter-spacing: 0.1rem;
+  transition: all 0.5s ease;
+  font-size: 0.8rem;
+  &:hover {
+    color:white;
+    background: rgba(102,177,241,0.8);
+    transition: all 0.5s ease;
+  }
+}
+
+.et-hero-tab-slider {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 6px;
+  background: #66B1F1;
+  transition: left 0.3s ease;
+}
+
+.et-hero-tabs-container--top {
+  position: fixed;
+  top: 0;
+}
+
+@media (min-width: 800px) {
+.et-hero-tabs,
+.et-slide {
+  h1 {
+      font-size: 3rem;
+  }
+  h3 {
+      font-size: 1rem;
+  }
+}
+.et-hero-tab {
+  font-size: 1rem;
+}
+}
+/* End of Navbar */
+
+/* Services section */
+
+
+/*# sourceMappingURL=scss.css.map */
+/* End of Services Section */
+
+/* Weekly Schedule */
+// Color Variables
+$highlight: #ffcc00;  // Example highlight color
+$darkhighlight: #ff9900;  // Example dark highlight color
+
+.ws-card-container {
+  flex: 300px;
+  margin: 30px;
+
+  .ws-card {
+    font-weight: bold;
+    position: relative;
+    width: 100%;
+
+    a {
+      padding: 30px;
+      width: 100%;
+      height: 400px;
+      border: 2px solid black;
+      background: white;
+      text-decoration: none;
+      color: black;
+      display: block;
+      transition: 0.25s ease;
+
+      &:hover {
+        transform: translate(-30px, -30px);
+        border-color: $highlight;
+
+        .ws-card--display {
+          display: none;
+        }
+
+        .ws-card--hover {
+          display: block;
+        }
+      }
+
+      .ws-card--display {
+        i {
+          font-size: 60px;
+          margin-top: 200px;
+        }
+
+        h2 {
+          margin: 20px 0 0;
+        }
+      }
+
+      .ws-card--hover {
+        display: none;
+
+        h2 {
+          margin: 20px 0;
+        }
+
+        p {
+          font-weight: normal;
+          line-height: 1.5;
+
+          &.link {
+            margin: 20px 0 0;
+            font-weight: bold;
+            color: $highlight;
+          }
+        }
+      }
+    }
+
+    .ws-card--border {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      border: 2px dashed black;
+      z-index: -1;
+    }
+
+    &.ws-card--dark {
+      a {
+        color: white;
+        background-color: black;
+        border-color: black;
+
+        .ws-card--hover {
+          .link {
+            color: $darkhighlight;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* End of Weekly Schedule */
