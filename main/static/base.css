@@ -1,6 +1,7 @@
 body {
-    background: linear-gradient(-45deg, antiquewhite, antiquewhite, antiquewhite, black, antiquewhite) !important;
+    background: linear-gradient(-45deg, rgb(230, 181, 118), antiquewhite, antiquewhite, rgb(233, 218, 198), rgb(204, 172, 129)) !important;
     animation: 12s myGradient infinite;
+    margin: 0;
   }
 
 /* Navbar */
@@ -11,7 +12,7 @@ ul {
   display: flex;
   padding: 18px 0;
   background-size: 400% 400%;
-  background-image: linear-gradient(-45deg, #000000, #000000, #000000, antiquewhite,#000000);
+  background-image: linear-gradient(-45deg, #000000, #000000, antiquewhite, antiquewhite,#000000);
   animation: 12s myGradient infinite;
   border-radius: 40px;
   box-shadow: 3px 3px 20px #070303;
@@ -60,6 +61,11 @@ li a {
   opacity: 0.9;
 }
 
+li a:hover {
+  color: #000000;
+  background-color: antiquewhite;
+}
+
 .navigation {
   position: fixed;
   top: 0;
@@ -70,6 +76,56 @@ li a {
   z-index: 1000; /* Optional: Ensure it stays above other elements */
 }
 /* End of Navbar */
+
+/* Church Name */
+.center-container {
+  position: relative; /* Allow absolute positioning of child elements */
+  height: 100vh; /* Full viewport height */
+  display: flex; /* Use Flexbox */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center; /* Center items vertically */
+  align-items: center; /* Center items horizontally */
+  margin-top: 10vh;
+}
+
+.element:hover {
+  transform: translateY(-20px); /* Scale the element on hover */
+  transition: transform 0.5s ease; /* Smooth transition */
+}
+
+.church-name {
+  text-align: center;
+  color: #4b2e2e;
+  font-size: 6em; /* Adjust as needed for smaller screens */
+  font-weight: bold; /* Bold text */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* More pronounced shadow */
+  font-family: 'Georgia', serif; /* Fancy font family */
+  margin: 0; /* Remove margin */
+  z-index: 1; /* Ensure it stays above the image */
+}
+
+/* Style for the church logo */
+.church-img {
+  position: absolute; /* Position it absolutely */
+  top: 50px; /* Adjust as needed for vertical spacing */
+  left: 100px; /* Adjust as needed for horizontal spacing */
+  max-width: 80%; /* Responsive width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Responsive font size */
+@media (max-width: 768px) {
+  .church-name {
+      font-size: 4em; /* Smaller font size for tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .church-name {
+      font-size: 3em; /* Even smaller font size for mobile */
+  }
+}
+/* End of Church Name */
 
 /* About Section */
 .row {
@@ -103,39 +159,61 @@ li a {
 .general-frame {
   border: 10px solid antiquewhite; /* General frame color */
   border-radius: 20px; /* Rounded corners for the general frame */
-  padding: 20px; /* Space between general frame and content */
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5); /* Shadow for general frame */
+  padding: 30px; /* Space between general frame and content */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.753); /* Shadow for general frame */
+  margin-top: 75px;
+  margin-bottom: 25px;
+  width: 100%;
 }
 
 .picture-wrapper {
-  position: relative; /* Allows positioning of the border */
+  position: relative; /* Allows positioning of the cover image */
   overflow: hidden; /* Prevent overflow */
   border-radius: 15px; /* Match image rounding */
-  border: 5px solid antiquewhite; /* Frame color for pictures */
-  transition: transform 0.3s ease; /* Smooth transition for transform */
+  border: 5px solid rgb(0, 0, 0); /* Frame color for pictures */
+  width: 100%;
+  height: 200px; /* Set a fixed height for the image container */
 }
 
-.picture-wrapper:hover {
-  transform: scale(1.05); /* Slightly enlarge on hover */
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.5); /* Add shadow on hover */
+
+.picture-wrapper img {
+  width: 100%; /* Ensure the image fills the container */
+  height: 100%; /* Ensure the image fills the container */
+  object-fit: cover; /* Cover the entire container while maintaining aspect ratio */
 }
 
+.cover-img {
+  position: absolute; /* Position over the actual image */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+  width: 100%; /* Cover the whole area */
+  height: 100%; /* Cover the whole area */
+  object-fit: cover; /* Keep cover image from zooming */
+  transition: transform 0.5s ease; /* Smooth transition for the hover effect */
+}
+
+
+.picture-wrapper:hover .cover-img {
+  transform: translateY(-100%); /* Slide up on hover */
+}
 
 /* End of About Section */
 
 /* Welcome Section */
 .welcome-section {
   background-color: antiquewhite; /* Light background */
-  border: 1px solid #ddd; /* Subtle border */
-  background-image: linear-gradient(-45deg, #000000, antiquewhite, antiquewhite, antiquewhite, #000000);
+  border: 1px solid #000000; /* Subtle border */
+  background-image: linear-gradient(-45deg, #0000003d, antiquewhite, antiquewhite, antiquewhite, #00000042);
   border-radius: 20px; /* Rounded corners */
   padding: 20px; /* Padding around the content */
   margin: 20px auto; /* Center the section */
   width: 80%; /* Adjust width as needed */
-  height: 60vh;
+  max-height: 60vh; /* Set max height */
+  overflow: auto; /* Allow scrolling if content is too large */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
-  display: grid;
-  place-items: center; /* Center items both vertically and horizontally */
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center items horizontally */
   text-align: center; /* Center text */
 }
 
@@ -154,51 +232,82 @@ li a {
   padding: 20px; /* Space around the content */
   border: 10px solid transparent; /* Initial border for spacing */
   border-radius: 15px; /* Rounded corners */
-  background: url('black.jpg') repeat center center; /* Flowery design image */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.801); /* Shadow for depth */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.801); /* Shadow for depth */
+  width:100%;
+  height: auto;
 }
 
 .image-frame {
-  display: inline-block; /* Centers the frame */
-  border: 10px solid #000000; /* Frame border */
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center the frame */
+  border: 30px solid #000000; /* Frame border */
   border-radius: 15px; /* Rounded corners */
   padding: 10px; /* Space between the image and the border */
-  background-color: #000000a9; /* Frame background color */
+  background-color: rgba(250, 235, 215, 0.192); /* Frame background color */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow for depth */
 }
 
 .address-img {
   max-width: 100%; /* Responsive image */
-  height: auto; /* Maintain aspect ratio */}
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure the image covers its container */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .welcome-section {
+      width: 90%; /* Adjust width for smaller screens */
+  }
+
+  .welcome-section h2 {
+      font-size: 2em; /* Adjust header size */
+  }
+
+  .welcome-section p {
+      font-size: 14px; /* Adjust paragraph size */
+  }
+
+  .address-img {
+      max-width: 90%; /* Adjust image width for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-section h2 {
+      font-size: 1.5em; /* Further adjust header size */
+  }
+
+  .welcome-section p {
+      font-size: 12px; /* Further adjust paragraph size */
+  }
+
+  .address-img {
+      max-width: 80%; /* Further adjust image width */
+  }
+}
 /* End of Welcome Section */
 
-/* Services Section */
+/* Testimonies Section */
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;600&display=swap");
-
-body {
-  font-family: "Oswald", sans-serif;
-  background-color: #212121;
-}
-
-body section {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-body section .row {
-  align-items: center;
-  height: 100vh;
-}
-.services-container {
+.testimonies-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 20px;
   margin-top: 20px;
-  width: 1142px;
+  width: 100vw;
   margin: 0 auto;
+}
+
+.testimonies-frame {
+  border: 10px solid antiquewhite; /* General frame color */
+  border-radius: 20px; /* Rounded corners for the general frame */
+  padding: 50px; /* Space between general frame and content */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.753); /* Shadow for general frame */
+  margin-bottom: 25px;
+  width: 100%;
+  height: auto;
 }
 
 .card {
@@ -313,7 +422,7 @@ body section .row {
   position: absolute;
   height: 100%;
   width: 100%;
-  background: #0b0f08;
+  background: #000000;
   transform-style: preserve-3d;
   transition: ease all 2.3s;
   transform: translateZ(-1px);
@@ -344,7 +453,7 @@ body section .row {
 
 /* Regular Schedule */
 .ag-format-container {
-  width: 1142px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -520,7 +629,7 @@ body section .row {
     font-size: 16px;
   }
 }
-/* End of Weekly Schedule */
+/* End of Schedule */
 
 /* Calendar */
 .all-calendar {
@@ -532,7 +641,7 @@ body section .row {
   display: flex;
   align-items: flex-start; /* Align items at the start */
   justify-content: center; /* Center the calendar */
-  margin-top: 20px;;
+  margin-top: 20px;
 }
 
 .calendar-title {
@@ -553,6 +662,8 @@ body section .row {
   background-color: black;
   padding: 30px;
   border-radius: 50px;
+  font-size: larger;
+  font-weight: bold;
 }
 
 .month-button {
@@ -568,7 +679,7 @@ body section .row {
 }
 
 .month-button:hover {
-  background-color: #9e9e9ed5;
+  background-color: #7070703a;
 }
 
 .day {
@@ -675,7 +786,7 @@ textarea {
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
-  margin-bottom: 20vh;
+  margin-bottom: 50vh;
 }
 
 #contact-container h1 {
