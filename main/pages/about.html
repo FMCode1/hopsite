@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}About HOP{% endblock %}
+
+{% block churchname %}
+    About H.O.P
+{% endblock churchname %}
+
+
+{% block block2 %}
+    {% for section in sections %}
+        <!-- About Us Section -->
+        <section class="py-5 general-frame element">
+            <div class="container my-3">
+                <div class="row gx-4 align-items-center justify-content-between min-vh-100">
+                    <div class="col-md-5 order-2 order-md-1">
+                        <div class="mt-5 mt-md-0 element">
+                            <span class="fs-1"><h4>This is</h4></span>
+                            <h2 class="display-5 fw-bold" style="color: #4b2e2e; font-size: 6em; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); font-family: 'Georgia', serif;">
+                                {{ section.title }}
+                            </h2>
+                            <p class="lead">{{ section.description }}</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 offset-md-1 order-1 order-md-2">
+                        <div class="row">
+                            {% if section.title == "Where We Are" %}
+                                <div class="col-12">
+                                    <div class="mb-2">
+                                        <iframe class="element" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2542.215835425632!2d-104.65197812285258!3d50.418450171586045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x531ea779ea311173%3A0x4e244997b08a2508!2sRCCG%20House%20of%20Peace!5e0!3m2!1sen!2sus!4v1729883181346!5m2!1sen!2sus" width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div class="col-12">
+                                    <div class="mb-2 picture-wrapper" style="width: auto; height: auto;">
+                                        <img class="img-fluid rounded-3" src="{{ section.image }}" alt="{{ section.title }} Image">
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End of About Us Section -->
+    {% endfor %}
+{% endblock block2 %}
+
+
+{% block block3 %}
+{% endblock block3 %}
+{% block block4 %}
+{% endblock block4 %}
+{% block block5 %}    
+{% endblock block5 %}
+{% block block6 %}    
+{% endblock block6 %}
+{% block block7 %}
+{% endblock block7 %}

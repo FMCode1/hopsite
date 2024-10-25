@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}HOP Programs{% endblock %}
+
+{% block churchname %}
+    House of Peace <BR> Programs
+{% endblock churchname %}
+
+{% block block2 %}
+{% endblock block2 %}
+{% block block3 %}
+{% endblock block3 %}
+{% block block4 %}
+{% endblock block4 %}
+{% block block5 %}
+{% for course in courses %}
+<div class="ag-courses_item">
+    <a href="{{ course.link }}" class="ag-courses-item_link">
+      <div class="ag-courses-item_bg"></div>
+
+      <div class="ag-courses-item_title">
+        {{ course.title }}
+      </div>
+
+      <div class="ag-courses-item_date-box">
+        {{ course.date }}
+        <span class="ag-courses-item_date">
+          {{ course.time }}
+        </span>
+      </div>
+    </a>
+</div>
+{% endfor %}
+{% endblock block5 %}
+{% block block6 %} 
+{{ block.super }}   
+{% endblock block6 %}
+{% block block7 %}
+{% endblock block7 %}
